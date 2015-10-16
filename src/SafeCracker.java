@@ -21,8 +21,9 @@ for (int i = 0; i < 100; i++) {
         System.out.println("trying " + guess);
         int secretCode = 9999999 - wekncrzpasfdkjhcfjse;
         if (guess == secretCode) {
-            playSoundFromInternet("http://10.0.1.75/sounds/megusta.wav");
+            
             JOptionPane.showMessageDialog(null, "Congratulations! You cracked the safe with " + guess);
+            playSoundFromInternet("http://10.0.1.75/sounds/megusta.wav");
             System.exit(0);
         }
     }
