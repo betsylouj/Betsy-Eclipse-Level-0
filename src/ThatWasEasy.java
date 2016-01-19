@@ -7,55 +7,48 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-
 public class ThatWasEasy extends MouseAdapter {
 
-    public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent arg0) {
 
-        /* Use the speak method to make the button work. */
-    	String easy = "That was easy";
-        speak(easy);
+		/* Use the speak method to make the button work. */
+		speak("That was easy");
 
-    }
+	}
 
-    private void speak(String words) {
-        try {
-            Runtime.getRuntime().exec("say " + words).waitFor();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	private void speak(String words) {
+		try {
+			Runtime.getRuntime().exec("say " + words).waitFor();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
+	public static void main(String[] args) {
+		new ThatWasEasy();
+	}
 
-    public static void main(String[] args) {
-        new ThatWasEasy();
-    }
+	public ThatWasEasy() {
+		showEasyButton();
+		easyButtonImage.addMouseListener(this);
+	}
 
-    public ThatWasEasy() {
+	JLabel easyButtonImage;
 
-        showEasyButton();
-        easyButtonImage.addMouseListener(this);
-    }
+	private void showEasyButton() {
+		JFrame quizWindow = new JFrame();
+		quizWindow.setVisible(true);
+		URL url = null;
+		try {
+			url = new URL(
+			"https://github.com/joonspoon/league-jars/blob/master/easy_button.jpg?raw=true");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 
-    JLabel easyButtonImage;
-
-    private void showEasyButton() {
-        JFrame quizWindow = new JFrame();
-        quizWindow.setVisible(true);
-        URL url = null;
-        try {
-            url = new URL(
-                    "https://github.com/joonspoon/league-jars/blob/master/easy_button.jpg?raw=true");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-        Icon icon = new ImageIcon(url);
-
-        this.easyButtonImage = new JLabel(icon);
-        quizWindow.add(easyButtonImage);
-        quizWindow.pack();
-    }
+		Icon icon = new ImageIcon(url);
+		this.easyButtonImage = new JLabel(icon);
+		quizWindow.add(easyButtonImage);
+		quizWindow.pack();
+	}
 }
-
-
