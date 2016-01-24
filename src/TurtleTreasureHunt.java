@@ -61,10 +61,10 @@ public class TurtleTreasureHunt implements KeyEventDispatcher {
 		 */
 		// Paintable backgroundImage = new ImageBackground("map.jpg");
 
-		//Paintable backgroundImage = new ImageBackground(
-		//		"http://s30.postimg.org/oi69jth7l/fetch1.jpg");
+		Paintable backgroundImage = new ImageBackground(
+				"http://s30.postimg.org/oi69jth7l/fetch1.jpg");
 
-		//Tortoise.getBackgroundWindow().addPaintable(backgroundImage);
+		Tortoise.getBackgroundWindow().addPaintable(backgroundImage);
 		Tortoise.penUp();
 		JOptionPane
 				.showMessageDialog(null,
